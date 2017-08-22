@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>alert</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+
+	<style type="text/css">
+		form.result{
+			text-align: center;
+			padding:20px;
+			background-color: #FFFFFF;
+			display:none ;
+			border: 1px solid black;
+			border-radius: 10px;
+			position: fixed;
+			top:20%;
+			z-index: 1;
+			padding-bottom: 40px;
+		}
+		.btn{
+			width: 80%; margin-left:10%;
+		}
+		.ok{
+			background-color: #FB5557;
+			height: 40px;width: 40%;
+			float: left;
+			display: inline-block;
+			border-radius: 5px;
+			margin: 10px;
+			color:#fff;
+			color:#fff;
+			line-height:40px;
+
+
+		}
+		.close{
+			color:#fff;
+			line-height:40px;
+			margin: 10px;
+		background-color: #FB5557;
+			height: 40px;width: 40%;
+			float: left;
+			display: inline-block;
+			border-radius: 5px;
+
+		}
+	
+		div.choice{
+			padding: 40px;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+	<button class="tanchuang">submit</button>
+	<form class="result">
+		<div class="choice">
+			打款结果:
+		<label><input name="xuan" type="radio" value="1"  class="radio1" />打款有问题 </label> 
+		<label><input name="xuan" type="radio" value="2"   class="radio2" />打款已确认</label>
+		</div> 
+		<div class="btn">
+			<div class="ok">提交</div>
+		    <div class="close">关闭</div>
+		</div>
+	</form> 
+	<p class="p"></p>
+</body>
+	<script type="text/javascript">
+	$(function(){
+		var change = null;
+		$(".tanchuang").click(function(){
+			$(".result").css("display","block");
+
+		})
+		$(".close").click(function(){
+			$(".result").css("display","none");
+		})
+		var num = $("body").width();
+		var num2  =$(".result").width();
+		$(".result").css("left",num/2-num2/2);
+		$(".radio1").click(function(){
+			change = 1;
+		})
+		$(".radio2").click(function(){
+			change = 2;
+		})
+		$(".ok").click(function(){
+
+			if (change==1) {
+				$(".p").text("打款有问题");
+			}else if(change==2){
+				$(".p").text("打款已确认");
+			}else{
+				$(".p").text("请选择一项");
+			}
+
+			$(".result").css("display","none");
+		})
+ 
+ })
+
+	</script>
+</html>
